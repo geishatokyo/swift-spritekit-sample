@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CDA3FF5319EBBFB200ED3967 /* move.atlas in Resources */ = {isa = PBXBuildFile; fileRef = CDA3FF5219EBBFB200ED3967 /* move.atlas */; };
+		CDA3FF5519EBD91700ED3967 /* jmp.atlas in Resources */ = {isa = PBXBuildFile; fileRef = CDA3FF5419EBD91700ED3967 /* jmp.atlas */; };
+		CDA3FF5719EBD92200ED3967 /* dmg.atlas in Resources */ = {isa = PBXBuildFile; fileRef = CDA3FF5619EBD92200ED3967 /* dmg.atlas */; };
 		CDE2211B19D6ACF500D911D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE2211A19D6ACF500D911D5 /* AppDelegate.swift */; };
 		CDE2211D19D6ACF500D911D5 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CDE2211C19D6ACF500D911D5 /* GameScene.sks */; };
 		CDE2211F19D6ACF500D911D5 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE2211E19D6ACF500D911D5 /* GameScene.swift */; };
@@ -28,6 +31,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CDA3FF5219EBBFB200ED3967 /* move.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = move.atlas; sourceTree = "<group>"; };
+		CDA3FF5419EBD91700ED3967 /* jmp.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = jmp.atlas; sourceTree = "<group>"; };
+		CDA3FF5619EBD92200ED3967 /* dmg.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = dmg.atlas; sourceTree = "<group>"; };
 		CDE2211519D6ACF500D911D5 /* swift-spritekit-sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swift-spritekit-sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDE2211919D6ACF500D911D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDE2211A19D6ACF500D911D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +94,9 @@
 				CDE2212219D6ACF500D911D5 /* Main.storyboard */,
 				CDE2212519D6ACF500D911D5 /* Images.xcassets */,
 				CDE2212719D6ACF500D911D5 /* LaunchScreen.xib */,
+				CDA3FF5619EBD92200ED3967 /* dmg.atlas */,
+				CDA3FF5419EBD91700ED3967 /* jmp.atlas */,
+				CDA3FF5219EBBFB200ED3967 /* move.atlas */,
 				CDE2211819D6ACF500D911D5 /* Supporting Files */,
 			);
 			path = "swift-spritekit-sample";
@@ -199,7 +208,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDE2212919D6ACF500D911D5 /* LaunchScreen.xib in Resources */,
+				CDA3FF5719EBD92200ED3967 /* dmg.atlas in Resources */,
+				CDA3FF5319EBBFB200ED3967 /* move.atlas in Resources */,
 				CDE2212619D6ACF500D911D5 /* Images.xcassets in Resources */,
+				CDA3FF5519EBD91700ED3967 /* jmp.atlas in Resources */,
 				CDE2211D19D6ACF500D911D5 /* GameScene.sks in Resources */,
 				CDE2212419D6ACF500D911D5 /* Main.storyboard in Resources */,
 			);
@@ -415,6 +427,7 @@
 				CDE2213A19D6ACF500D911D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CDE2213B19D6ACF500D911D5 /* Build configuration list for PBXNativeTarget "swift-spritekit-sampleTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +436,7 @@
 				CDE2213D19D6ACF500D911D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
