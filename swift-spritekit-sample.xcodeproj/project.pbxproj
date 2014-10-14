@@ -10,6 +10,7 @@
 		CDA3FF5319EBBFB200ED3967 /* move.atlas in Resources */ = {isa = PBXBuildFile; fileRef = CDA3FF5219EBBFB200ED3967 /* move.atlas */; };
 		CDA3FF5519EBD91700ED3967 /* jmp.atlas in Resources */ = {isa = PBXBuildFile; fileRef = CDA3FF5419EBD91700ED3967 /* jmp.atlas */; };
 		CDA3FF5719EBD92200ED3967 /* dmg.atlas in Resources */ = {isa = PBXBuildFile; fileRef = CDA3FF5619EBD92200ED3967 /* dmg.atlas */; };
+		CDA3FF5D19ECE27200ED3967 /* block_ds.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA3FF5C19ECE27200ED3967 /* block_ds.png */; };
 		CDE2211B19D6ACF500D911D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE2211A19D6ACF500D911D5 /* AppDelegate.swift */; };
 		CDE2211D19D6ACF500D911D5 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CDE2211C19D6ACF500D911D5 /* GameScene.sks */; };
 		CDE2211F19D6ACF500D911D5 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE2211E19D6ACF500D911D5 /* GameScene.swift */; };
@@ -34,6 +35,7 @@
 		CDA3FF5219EBBFB200ED3967 /* move.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = move.atlas; sourceTree = "<group>"; };
 		CDA3FF5419EBD91700ED3967 /* jmp.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = jmp.atlas; sourceTree = "<group>"; };
 		CDA3FF5619EBD92200ED3967 /* dmg.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = dmg.atlas; sourceTree = "<group>"; };
+		CDA3FF5C19ECE27200ED3967 /* block_ds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = block_ds.png; sourceTree = "<group>"; };
 		CDE2211519D6ACF500D911D5 /* swift-spritekit-sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swift-spritekit-sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDE2211919D6ACF500D911D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDE2211A19D6ACF500D911D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 		CDE2211719D6ACF500D911D5 /* swift-spritekit-sample */ = {
 			isa = PBXGroup;
 			children = (
+				CDA3FF5C19ECE27200ED3967 /* block_ds.png */,
 				CDE2211A19D6ACF500D911D5 /* AppDelegate.swift */,
 				CDE2211C19D6ACF500D911D5 /* GameScene.sks */,
 				CDE2211E19D6ACF500D911D5 /* GameScene.swift */,
@@ -207,6 +210,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDA3FF5D19ECE27200ED3967 /* block_ds.png in Resources */,
 				CDE2212919D6ACF500D911D5 /* LaunchScreen.xib in Resources */,
 				CDA3FF5719EBD92200ED3967 /* dmg.atlas in Resources */,
 				CDA3FF5319EBBFB200ED3967 /* move.atlas in Resources */,

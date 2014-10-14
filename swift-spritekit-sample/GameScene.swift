@@ -28,6 +28,20 @@ class GameScene: SKScene {
         walk = SKAction.repeatActionForever(SKAction.animateWithTextures(textures,timePerFrame: 0.25))
         miku?.runAction(walk!)
         
+        // 床を敷き詰める
+        let b = SKTexture(imageNamed: "block_ds")
+        let b1 = SKTexture(rect: CGRectMake(0, (432.0 - 48.0) / 432.0, 16.0 / 128.0, 48.0 / 432.0), inTexture: b)
+        let bNode = SKSpriteNode(texture: b1)
+        let x = CGRectGetMinX(self.frame)
+        let y = CGRectGetMinY(self.frame) + 50
+        let count = Int(CGRectGetMaxX(self.frame) / 16.0) + 1
+        for var i = 0 ; i < count ; ++i  {
+            let bNode = SKSpriteNode(texture: b1)
+            bNode.position = CGPointMake(x + CGFloat(i * 16.0), y)
+            bNode.physicsBody = SKPhysicsBody(rectangleOfSize: b1.size())
+            addChild(bNode)
+        }
+
         self.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame)
     }
     
