@@ -415,6 +415,7 @@
 				CDE2213A19D6ACF500D911D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CDE2213B19D6ACF500D911D5 /* Build configuration list for PBXNativeTarget "swift-spritekit-sampleTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +424,7 @@
 				CDE2213D19D6ACF500D911D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
