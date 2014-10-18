@@ -27,12 +27,11 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     
     // 玉を生成
     func newBall(color: UIColor, categoryBitMask: UInt32, contactTestBitMask: UInt32) -> SKNode {
-        let ball = SKShapeNode.node()
         var path = CGPathCreateMutable()
         let r = CGFloat(30.0)
         let pi = CGFloat(M_PI * 2)
         CGPathAddArc(path, nil, 0, 0, r, 0, pi, true)
-        ball.path = path
+        let ball = SKShapeNode(path: path)
         ball.fillColor =  color // SKColor.blueColor()
         ball.strokeColor = SKColor.clearColor()
         ball.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidX(self.frame))
