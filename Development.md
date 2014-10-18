@@ -9,8 +9,11 @@
 
 ## 動かし方
 
-Xcode(ver 6.0以上)でswift-spritekit-sample.xcodeproを開き、
+Xcode(ver 6.0.1)でswift-spritekit-sample.xcodeproを開き、
 [Product]-[Run]を実行してください
+
+Xcode(ver6.1)ではbranchをxcode_6_1に切り替えて
+上記手順を実行して下さい
 
 ## 実装されている機能
 
