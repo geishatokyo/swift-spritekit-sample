@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class GameScene: SKScene {
+class GameScene: SKScene , SKPhysicsContactDelegate {
     
     func skRandf() -> CGFloat {
         return CGFloat(Float(rand()) / Float(RAND_MAX));
@@ -19,18 +19,26 @@ class GameScene: SKScene {
     
     var player: SKNode?
     
-    // Player用の玉を生成
-    func newPlayer() -> SKNode {
+    // カテゴリを用意しておく。
+    let wallCategory: UInt32 = 0x1 << 0
+    let blueCategory: UInt32 = 0x1 << 1
+    let redCategory: UInt32 = 0x1 << 2
+    let greenCategory: UInt32 = 0x1 << 3
+    
+    // 玉を生成
+    func newBall(color: UIColor, categoryBitMask: UInt32, contactTestBitMask: UInt32) -> SKNode {
         let ball = SKShapeNode.node()
         var path = CGPathCreateMutable()
         let r = CGFloat(30.0)
         let pi = CGFloat(M_PI * 2)
         CGPathAddArc(path, nil, 0, 0, r, 0, pi, true)
         ball.path = path
-        ball.fillColor = SKColor.blueColor()
+        ball.fillColor =  color // SKColor.blueColor()
         ball.strokeColor = SKColor.clearColor()
         ball.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidX(self.frame))
         ball.physicsBody = SKPhysicsBody(circleOfRadius: r)
+        ball.physicsBody?.categoryBitMask = categoryBitMask // blueCategory
+        ball.physicsBody?.contactTestBitMask = contactTestBitMask // redCategory
         return ball
     }
     
@@ -43,10 +51,15 @@ class GameScene: SKScene {
         rect.position = CGPointMake(x, y)
         rect.physicsBody = SKPhysicsBody(rectangleOfSize: rect.size)
         rect.physicsBody?.dynamic = false // 動かない
+        rect.physicsBody?.categoryBitMask = redCategory
+        rect.physicsBody?.contactTestBitMask = 0 // 初期化しないと不定値が入る
         return rect
     }
     
     override func didMoveToView(view: SKView) {
+        
+        self.physicsWorld.contactDelegate = self
+        
         let floorPositions: [[CGFloat]] = [
             [6.40000009536743,92.8000030517578],
             [36.2666664123535,87.4666748046875],
@@ -82,10 +95,20 @@ class GameScene: SKScene {
             addChild(newRect(floor[0],y:floor[1]))
         }
         
-        player = newPlayer()
+        player = newBall(SKColor.blueColor(),
+            categoryBitMask: blueCategory,
+            contactTestBitMask: greenCategory)
         addChild(player!)
         
+        let greenBall = newBall(SKColor.greenColor(),
+            categoryBitMask: greenCategory,
+            contactTestBitMask: blueCategory)
+        greenBall.position.x += 500
+        addChild(greenBall)
+        
         self.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame)
+        self.physicsBody?.categoryBitMask = wallCategory
+        self.physicsBody?.contactTestBitMask = 0
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
@@ -109,5 +132,31 @@ class GameScene: SKScene {
     
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+    }
+    var i : UInt8 = 1
+    func didBeginContact(contact: SKPhysicsContact!) {
+        
+        var firstBody, secondBody: SKPhysicsBody
+        
+        // firstを青、secondを緑とする。
+        if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
+            firstBody = contact.bodyA
+            secondBody = contact.bodyB
+        } else {
+            firstBody = contact.bodyB
+            secondBody = contact.bodyA
+        }
+        
+        // 青と緑が接したときの処理。
+        if ((firstBody.categoryBitMask & blueCategory) != 0) &&
+            ((secondBody.categoryBitMask & greenCategory) != 0) {
+                let label = SKLabelNode(fontNamed:"Chalkduster")
+                label.text = "Hit!"
+                label.fontSize = 65
+ 
+                label.position = CGPoint(x:skRand(0, high: CGRectGetMaxX(self.frame)),
+                    y:skRand(0, high: CGRectGetMaxY(self.frame)));
+                addChild(label)
+        }
     }
 }
