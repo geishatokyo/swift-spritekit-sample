@@ -138,7 +138,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         
         var firstBody, secondBody: SKPhysicsBody
         
-        // firstを緑、secondを青とする。
+        // firstを青、secondを緑とする。
         if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
             firstBody = contact.bodyA
             secondBody = contact.bodyB
@@ -147,7 +147,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
             secondBody = contact.bodyA
         }
         
-        // 赤と緑が接したときの処理。
+        // 青と緑が接したときの処理。
         if ((firstBody.categoryBitMask & blueCategory) != 0) &&
             ((secondBody.categoryBitMask & greenCategory) != 0) {
                 let label = SKLabelNode(fontNamed:"Chalkduster")
