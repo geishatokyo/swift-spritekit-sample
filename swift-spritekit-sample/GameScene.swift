@@ -53,7 +53,7 @@ class WallNode: SKSpriteNode{
         self.physicsBody?.contactTestBitMask = 0 // 初期化しないと不定値が入る
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         self.x = 0
         self.y = 0
         super.init(coder: aDecoder)
@@ -90,7 +90,7 @@ class BallNode: SKShapeNode{
         self.physicsBody?.contactTestBitMask = contactTestBitMask
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 }
@@ -103,7 +103,7 @@ class EnemyNode: BallNode, MovingNode{
         self.physicsBody?.restitution = 0.8;
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         self.prob = 0.0
         super.init(coder: aDecoder)
     }
@@ -124,7 +124,7 @@ class PlayerNode: BallNode{
         super.init(color: SKColor.blueColor(), categoryBitMask: Category.player, contactTestBitMask: Category.enemy)
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         self.hp = 0
         super.init(coder: aDecoder)
     }
@@ -151,7 +151,7 @@ class GoalNode: SKSpriteNode{
         self.position = CGPointMake(x, y)
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -215,7 +215,7 @@ class MapNode: SKNode{
         }
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 }
@@ -337,8 +337,8 @@ class MainGameScene: SKScene, SKPhysicsContactDelegate {
     override func didMoveToView(view: SKView) {
         self.anchorPoint = CGPointMake(0.5, 0.5)
         self.physicsWorld.contactDelegate = self
-        
-        myWorld = SKNode.node()
+
+        myWorld = SKNode()
         self.addChild(myWorld!)
         
         let (startPos, goalPos) = makeMap(map1, parent: myWorld!)
